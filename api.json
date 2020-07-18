@@ -1,0 +1,270 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 999
+    },
+    {
+      "id": 2,
+      "amount": 999
+    },
+    {
+      "id": 3,
+      "amount": 999
+    },
+    {
+      "id": 4,
+      "amount": 999
+    },
+    {
+      "id": 5,
+      "amount": 999
+    },
+    {
+      "id": 6,
+      "amount": 999
+    },
+    {
+      "id": 7,
+      "amount": 999
+    },
+    {
+      "id": 8,
+      "amount": 999
+    },
+    {
+      "id": 9,
+      "amount": 999
+    },
+    {
+      "id": 10,
+      "amount": 999
+    }
+  ],
+  "sessions": [
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 1
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 2
+    },
+    {
+      "cnpj": "12345678901234",
+      "id": 3
+    },
+    {
+      "cnpj": "12345678901234",
+      "id": 4
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 5
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 6
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 7
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 8
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 9
+    },
+    {
+      "password": "abc12345",
+      "id": 10
+    },
+    {
+      "password": "abc12345",
+      "id": 11
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 12
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 13
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 14
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 15
+    },
+    {
+      "cnpj": "1234567890",
+      "password": "abc12345",
+      "id": 16
+    },
+    {
+      "cnpj": "1234567890",
+      "password": "abc12345",
+      "id": 17
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 18
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 19
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 20
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 21
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 22
+    },
+    {
+      "cnpj": "1234567890",
+      "password": "abc12345",
+      "id": 23
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 24
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 25
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 26
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 27
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 28
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 29
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 30
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 31
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 32
+    },
+    {
+      "cnpj": "1234567890",
+      "password": "abc12345",
+      "id": 33
+    },
+    {
+      "cnpj": "1234567890",
+      "password": "abc12345",
+      "id": 34
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 35
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 36
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 37
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 38
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 39
+    }
+  ],
+  "products": [
+    {
+      "image": "classroom",
+      "title": "Sala EAD",
+      "price": "2344",
+      "id": 8
+    },
+    {
+      "image": "school",
+      "title": "Sala de Aula",
+      "price": "32423",
+      "id": 10
+    },
+    {
+      "image": "city",
+      "title": "Gerenciamento de Projetos",
+      "price": "436436",
+      "id": 11
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "José Rios",
+      "formalname": "Empresa A",
+      "email": "test@teste.com",
+      "fantasyname": "Empresa 1",
+      "cnpj": "12345678901234",
+      "password": "abc123456",
+      "token": "asddeaf",
+      "admin": true
+    }
+  ]
+}
