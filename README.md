@@ -30,7 +30,7 @@ A loja virtual LinkShare Softwares tem como objetivo trazer soluções na área 
 ## :fire: Prévia da Aplicação
 
 <div align="center">
-<img src="./img/dashboard.png" alt="preview"/>
+<img src="./img/dashboard.jpg" alt="preview"/>
 </div>
 
 ### :rocket: Tecnologias Usadas
