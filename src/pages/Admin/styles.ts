@@ -97,6 +97,7 @@ export const TrashButton = styled.TouchableOpacity`
 `;
 
 export const ActivityArea = styled.View`
+  margin-top: 50%;
   flex: 1;
   align-items: center;
   justify-content: center;

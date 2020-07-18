@@ -77,33 +77,6 @@ export const ErrorText = styled.Text`
   color: #f66;
 `;
 
-export const CreateButton = styled.TouchableOpacity`
-  background-color: #3f51b5;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  flex-direction: row;
-  padding-right: 25%;
-  justify-content: space-between;
-`;
-
-export const CreateButtonText = styled.Text`
-  font-size: 16px;
-  color: #fff;
-  font-family: sans-serif;
-  font-weight: bold;
-`;
-
-export const CreateContainer = styled.View`
-  background-color: #333;
-  flex-direction: column;
-  padding: 0 20px;
-`;
-
 export const ProductAmount = styled.View`
   background-color: ${darken(0.09, '#3f51b5')};
   width: 20%;

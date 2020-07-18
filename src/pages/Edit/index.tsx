@@ -16,12 +16,8 @@ import {
   LinkText,
   ErrorText,
   ButtonText,
-  CreateContainer,
-  CreateButtonText,
-  CreateButton,
   CameraView,
   CameraImage,
-  ProductAmount,
 } from './styles';
 import api from '../../services/api';
 import { pickImage } from '../../util/pickImage'
@@ -74,15 +70,18 @@ const Create: React.FC<>= () => {
     const { title } = values;
     const { price } = values;
 
-
-    await api.put(`products/${routeParams.productId}`, {
-      image: 'computer',
-      title,
-      price,
-      headers: {
-        token: 'fake token'
-      }
-    });
+    try {
+      await api.put(`products/${routeParams.productId}`, {
+        image: 'computer',
+        title,
+        price,
+        headers: {
+          token: 'fake token'
+        }
+      });
+    } catch (error) {
+      Alert.alert('Produto não editado!, tente mais tarde')
+    }
 
     return navigation.navigate('Main');
   }
@@ -91,7 +90,7 @@ const Create: React.FC<>= () => {
     <>
       <Header />
       <Container>
-        <LoginText>Cadastrar Produto</LoginText>
+        <LoginText>Editar Produto</LoginText>
         <LoginContainer>
           <Formik
             initialValues={{ title: product.title, price: product.price }}

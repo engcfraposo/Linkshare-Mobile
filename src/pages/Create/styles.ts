@@ -8,7 +8,7 @@ export const Container = styled.ScrollView`
   flex: 1;
 `;
 
-export const LoginText = styled.Text`
+export const CreateFormText = styled.Text`
   margin: 10% 0 0 0;
   font-size: 28px;
   color: #fff;
@@ -16,7 +16,7 @@ export const LoginText = styled.Text`
   text-align: center;
 `;
 
-export const LoginContainer = styled.View`
+export const CreateFormContainer = styled.View`
   margin-top: 50px;
   align-items: center;
   background-color: #fff;

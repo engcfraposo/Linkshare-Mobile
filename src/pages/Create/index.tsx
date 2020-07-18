@@ -8,8 +8,8 @@ import { Alert } from 'react-native';
 import Header from '../../components/Header';
 import {
   Container,
-  LoginContainer,
-  LoginText,
+  CreateFormContainer,
+  CreateFormText,
   Button,
   Field,
   LinkContainer,
@@ -51,24 +51,28 @@ const Edit: React.FC<>= () => {
     const { price } = values;
 
 
-    await api.put('products', {
-      image: 'computer',
-      title,
-      price,
-      headers: {
-        token: 'fake token'
-      }
-    });
-
-    return navigation.navigate('Main');
+    try {
+      await api.post('products', {
+        image: 'computer',
+        title,
+        price,
+        headers: {
+          token: 'fake token'
+        }
+      });
+      Alert.alert('Produto criado!')
+      return navigation.navigate('Main');
+    } catch (error) {
+      Alert.alert('Produto não criado!, tente mais tarde')
+    }
   }
 
   return (
     <>
       <Header />
       <Container>
-        <LoginText>Editar Produto</LoginText>
-        <LoginContainer>
+        <CreateFormText>Criar Produto</CreateFormText>
+        <CreateFormContainer>
           <Formik
             initialValues={{ title: '', price: 0 }}
             onSubmit={handleSubmit}
@@ -118,7 +122,7 @@ const Edit: React.FC<>= () => {
               <LinkText>Voltar</LinkText>
             </LinkButton>
           </LinkContainer>
-        </LoginContainer>
+        </CreateFormContainer>
       </Container>
       <CreateContainer>
         <CreateButton onPress={() => navigation.navigate('Create')}>

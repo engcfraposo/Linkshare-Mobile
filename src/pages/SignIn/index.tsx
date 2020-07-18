@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';

@@ -10,8 +10,8 @@ import { signUpRequest } from '../../store/modules/auth/actions';
 
 import {
   Container,
-  LoginContainer,
-  LoginText,
+  SingUpContainer,
+  SingUpText,
   Button,
   Field,
   LinkContainer,
@@ -55,8 +55,8 @@ const SignUp: React.FC = () => {
     <>
       <Header />
       <Container>
-        <LoginText>Cadastrar</LoginText>
-        <LoginContainer>
+        <SingUpText>Cadastrar</SingUpText>
+        <SingUpContainer>
           <Formik
             initialValues={{
               name: '',
@@ -156,7 +156,7 @@ const SignUp: React.FC = () => {
               <LinkText>Já possui cadastro? Clique aqui</LinkText>
             </LinkButton>
           </LinkContainer>
-        </LoginContainer>
+        </SingUpContainer>
       </Container>
     </>
   );
