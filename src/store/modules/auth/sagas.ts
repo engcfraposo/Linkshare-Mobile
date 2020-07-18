@@ -6,11 +6,18 @@ import { signInSuccess, signFailure } from './actions';
 export function* signIn({ payload }) {
   try {
     const { cnpj, password } = payload;
-    const response = yield call(api.post, 'sessions', {
-      cnpj,
-      password,
+
+    const users = yield call(api.get, 'users', {
+      params: {
+        cnpj,
+      },
     });
 
+    if (!users.data.password === password) {
+      return alert(
+        'Falha na autenticação, Houve um erro no login, verifique seu email/senha',
+      );
+    }
     // const { token, user } = response.data;
 
     const token = 'fake token';
@@ -22,7 +29,10 @@ export function* signIn({ payload }) {
     };
 
     // api.defaults.headers.Authorization = `Baerer ${token}`;
-
+    const response = yield call(api.post, 'sessions', {
+      cnpj,
+      password,
+    });
     yield put(signInSuccess(token, user));
 
     // history.push('/dashboard');
