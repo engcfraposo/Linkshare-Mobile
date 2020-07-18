@@ -21,6 +21,7 @@ import {
 } from './styles';
 import api from '../../services/api';
 import { pickImage } from '../../util/pickImage'
+import { Alert } from 'react-native';
 
 interface RouteParams {
   productId: string;
@@ -42,7 +43,7 @@ const validations = yup.object().shape({
 });
 
 
-const Create: React.FC<>= () => {
+const Create: React.FC = () => {
 
   const navigation = useNavigation();
   const route = useRoute();

@@ -232,16 +232,24 @@
       "cnpj": "12345678901234",
       "password": "abc12345",
       "id": 39
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 40
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 41
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc12345",
+      "id": 42
     }
   ],
   "products": [
-    {
-      "image": "computer",
-      "headers": {
-        "token": "fake token"
-      },
-      "id": 8
-    },
     {
       "image": "school",
       "title": "Sala de Aula",
