@@ -4,12 +4,12 @@
 
 <div align="center" style="margin: 20px;">
 
-[![The MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](http://github.com/engcfraposo/linkshare/LICENSE.md)
-![GitHub last commit](https://img.shields.io/github/last-commit/engcfraposo/linkshare?color=green&style=flat-square)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/30e0ef7a3c2146498723e53c9fcaeda7)](https://www.codacy.com/manual/engcfraposo/linkshare_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=engcfraposo/linkshare&amp;utm_campaign=Badge_Grade)
-![GitHub top language](https://img.shields.io/github/languages/top/engcfraposo/linkshare?style=flat-square)
-<a href="https://github.com/engcfraposo/linkshare/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/engcfraposo/linkshare?style=social">
+[![The MIT License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](http://github.com/engcfraposo/linkshare-Mobile/LICENSE.md)
+![GitHub last commit](https://img.shields.io/github/last-commit/engcfraposo/linkshare-Mobile?color=green&style=flat-square)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/30e0ef7a3c2146498723e53c9fcaeda7)](https://www.codacy.com/manual/engcfraposo/linkshare-Mobile_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=engcfraposo/linkshare-Mobile&amp;utm_campaign=Badge_Grade)
+![GitHub top language](https://img.shields.io/github/languages/top/engcfraposo/linkshare-Mobile?style=flat-square)
+<a href="https://github.com/engcfraposo/linkshare-Mobile/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/engcfraposo/linkshare-Mobile?style=social">
   </a>
 
 
@@ -30,7 +30,7 @@ A loja virtual LinkShare Softwares tem como objetivo trazer soluções na área 
 ## :fire: Prévia da Aplicação
 
 <div align="center">
-<img src="./img/dashboard.gif" alt="preview"/>
+<img src="./img/dashboard.png" alt="preview"/>
 </div>
 
 ### :rocket: Tecnologias Usadas
