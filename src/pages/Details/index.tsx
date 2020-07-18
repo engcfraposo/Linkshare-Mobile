@@ -59,6 +59,11 @@ const Details: React.FC<CartState> = ({ addToCartRequest, amount }: any) => {
     addToCartRequest(id);
   }, []);
 
+  const initialValues = {
+    title: product.title,
+    price: Number(product.price),
+  };
+
   return (
     <>
       <Container>

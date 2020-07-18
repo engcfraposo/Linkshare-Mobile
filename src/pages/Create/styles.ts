@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 import { darken } from 'polished';
-import * as ImagePicker from 'expo-image-picker';
 
 export const Container = styled.ScrollView`
   background-color: #3f51b5;
@@ -123,9 +122,12 @@ export const CameraView = styled.View`
   flex: 1;
   align-items: center;
   justify-content: center;
+  border: 1px solid #ccc;
+  background-color: ${darken(0.01, '#3f51b5')};
 `;
 
 export const CameraImage = styled.Image`
   width: 350px;
   height: 350px;
+
 `;

@@ -236,9 +236,10 @@
   ],
   "products": [
     {
-      "image": "classroom",
-      "title": "Sala EAD",
-      "price": "2344",
+      "image": "computer",
+      "headers": {
+        "token": "fake token"
+      },
       "id": 8
     },
     {
@@ -252,6 +253,15 @@
       "title": "Gerenciamento de Projetos",
       "price": "436436",
       "id": 11
+    },
+    {
+      "image": "computer",
+      "title": "teste",
+      "price": "50",
+      "headers": {
+        "token": "fake token"
+      },
+      "id": 12
     }
   ],
   "users": [

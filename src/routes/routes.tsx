@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Admin from '../pages/Admin';
 import Create from '../pages/Create';
+import Edit from '../pages/Edit';
 
 const Stack = createStackNavigator();
 
@@ -47,6 +48,14 @@ const Routes: React.FC = () => (
     <Stack.Screen
       name="Create"
       component={Create}
+      options={{
+        headerShown: false,
+        headerTransparent: true,
+      }}
+    />
+      <Stack.Screen
+      name="Edit"
+      component={Edit}
       options={{
         headerShown: false,
         headerTransparent: true,

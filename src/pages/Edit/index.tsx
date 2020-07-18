@@ -1,12 +1,10 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import * as yup from 'yup';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Header from '../../components/Header';
-import { signInRequest } from '../../store/modules/auth/actions';
-
 import {
   Container,
   LoginContainer,
@@ -18,84 +16,129 @@ import {
   LinkText,
   ErrorText,
   ButtonText,
+  CreateContainer,
+  CreateButtonText,
+  CreateButton,
+  CameraView,
+  CameraImage,
+  ProductAmount,
 } from './styles';
+import api from '../../services/api';
+import { pickImage } from '../../util/pickImage'
+
+interface RouteParams {
+  productId: string;
+}
+
+interface IProduct {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  amount: number;
+  subtotal: number;
+  priceFormatted: string;
+}
 
 const validations = yup.object().shape({
-  cnpj: yup.number().min(14, 'Cnpj invalido!').required('requerido'),
-  password: yup.string().min(8, 'Minimo de 8 caracteres').required('requerido'),
+  title: yup.string().min(3, 'Minimo de 3 caracteres'),
+  price: yup.number()
 });
 
-const SignIn: React.FC = () => {
+
+const Create: React.FC<>= () => {
+
   const navigation = useNavigation();
-  const dispatch = useDispatch();
-  const loading = useSelector((state) => state.auth.loading);
+  const route = useRoute();
+  const [image, setImage] = useState<string>('')
+  const [product, setProduct] = useState<IProduct>({} as IProduct);
+  const routeParams = route.params as RouteParams;
 
-  function handleSubmit(values) {
-    const { cnpj } = values;
-    const { password } = values;
+  useEffect(() => {
+    async function loadProduct(): Promise<void> {
+      const response = await api.get(`products/${routeParams.productId}`);
 
-    if (cnpj && password) dispatch(signInRequest(cnpj, password));
+      setProduct(response.data);
+    }
 
-    navigation.goBack();
+    loadProduct();
+  }, [routeParams]);
+
+  const takeAPhoto = async() => {
+     const result = await pickImage();
+     const { uri } = result
+     setImage(uri);
+  }
+
+   const handleSubmit = async (values) => {
+    const { title } = values;
+    const { price } = values;
+
+
+    await api.put(`products/${routeParams.productId}`, {
+      image: 'computer',
+      title,
+      price,
+      headers: {
+        token: 'fake token'
+      }
+    });
+
+    return navigation.navigate('Main');
   }
 
   return (
     <>
       <Header />
       <Container>
-        <LoginText>Login</LoginText>
+        <LoginText>Cadastrar Produto</LoginText>
         <LoginContainer>
           <Formik
-            initialValues={{ cnpj: '', password: '' }}
+            initialValues={{ title: product.title, price: product.price }}
             onSubmit={handleSubmit}
             validationSchema={validations}
           >
-
             {({values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit, }) => (
               <>
+                <CameraView>
+                  {image? (<CameraImage source={{ uri: image }} />):(<></>)}
+                </CameraView>
+                <Button onPress={()=>takeAPhoto()}>
+                  <Icon name="camera" color="#FFF" size={20} />
+                </Button>
                 <Field
-                  value={values.cnpj}
-                  onChangeText={handleChange('cnpj')}
-                  onBlur={() => setFieldTouched('cnpj')}
-                  placeholder="Cnpj"
+                  value={values.title}
+                  onChangeText={handleChange('title')}
+                  placeholder={product.title}
                   placeholderTextColor="#3f51b5"
-                  keyboardType="numeric"
                 />
-                {touched.cnpj && errors.cnpj && (
-                  <ErrorText>{errors.cnpj}</ErrorText>
+                {touched.title && errors.title && (
+                  <ErrorText>{errors.title}</ErrorText>
                 )}
 
                 <Field
-                  value={values.password}
-                  onChangeText={handleChange('password')}
-                  onBlur={() => setFieldTouched('password')}
-                  placeholder=" Coloque sua senha"
-                  secureTextEntry
+                  value={values.price}
+                  onChangeText={handleChange('price')}
+                  placeholder={product.price}
+                  keyboardType="numeric"
                   placeholderTextColor="#3f51b5"
-                  autoCompleteType="off"
                 />
-                {touched.password && errors.password && (
-                  <ErrorText>{errors.password}</ErrorText>
+                {touched.price && errors.price && (
+                  <ErrorText>{errors.price}</ErrorText>
                 )}
 
                 <Button
-                  title="Entrar"
                   disabled={!isValid}
                   onPress={handleSubmit}
-                  loading={loading}
                 >
-                  <ButtonText>Entrar</ButtonText>
+                  <ButtonText>Editar</ButtonText>
                 </Button>
               </>
             )}
           </Formik>
-
           <LinkContainer>
-            <LinkButton onPress={() => {}}>
-              <LinkText>Esqueci minha senha</LinkText>
-            </LinkButton>
-            <LinkButton onPress={() => navigation.navigate('SignUp')}>
-              <LinkText>Não possui cadastro? Clique aqui</LinkText>
+            <LinkButton onPress={() => navigation.goBack()}>
+              <LinkText>Voltar</LinkText>
             </LinkButton>
           </LinkContainer>
         </LoginContainer>
@@ -104,4 +147,4 @@ const SignIn: React.FC = () => {
   );
 };
 
-export default SignIn;
+export default Create

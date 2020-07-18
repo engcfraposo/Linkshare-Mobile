@@ -14,6 +14,7 @@ import {
   BasketContainer,
   StatusContainer,
   ItemCount,
+  LogoButton,
 } from './styles';
 
 const Header: React.FC = ({ cart }) => {
@@ -38,7 +39,9 @@ const Header: React.FC = ({ cart }) => {
   return (
     <Wrapper>
       <Container>
-        <Logo />
+        <LogoButton onPress={() => navigation.navigate('Main')}>
+          <Logo />
+        </LogoButton>
         <StatusContainer>
           <BasketContainer onPress={() => navigation.navigate('Cart')}>
             <MaterialIcons name="shopping-basket" color="#FFF" size={24} />

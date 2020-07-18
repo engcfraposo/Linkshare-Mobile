@@ -58,10 +58,8 @@ const Admin: React.FC = () => {
     return navigation.navigate('Main');
   };
 
-  const handleEdit = async (id: number) => {
-
-    return navigation.navigate('Main');
-  };
+  const handleEditProduct = async (productId: number) =>
+    navigation.navigate('Edit', { productId });
 
   return (
     <>
@@ -86,7 +84,7 @@ const Admin: React.FC = () => {
                 <ProductTitle>{product.title}</ProductTitle>
                 <ProductPrice>{formatPrice(product.price)}</ProductPrice>
               </ProductInfo>
-              <Button onPress={() => handleEditProduct()}>
+              <Button onPress={() => handleEditProduct(product.id)}>
                 <ProductAmount>
                   <Icon name="folder-open" color="#FFF" size={20} />
                 </ProductAmount>
@@ -107,7 +105,7 @@ const Admin: React.FC = () => {
           <ProductAmount>
             <Icon name="pencil" color="#FFF" size={20} />
           </ProductAmount>
-          <CreateButtonText>Cria Produto</CreateButtonText>
+          <CreateButtonText>Criar Produto</CreateButtonText>
         </CreateButton>
       </CreateContainer>
     </>

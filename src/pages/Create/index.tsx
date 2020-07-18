@@ -25,33 +25,33 @@ import {
   ProductAmount,
 } from './styles';
 import api from '../../services/api';
+import { pickImage } from '../../util/pickImage'
 
 
 const validations = yup.object().shape({
-  cnpj: yup.number().min(14, 'Cnpj invalido!').required('requerido'),
-  password: yup.string().min(8, 'Minimo de 8 caracteres').required('requerido'),
+  title: yup.string().min(3, 'Minimo de 3 caracteres').required('requerido'),
+  price: yup.number().required('requerido'),
 });
 
 
-const Create: React.FC<>= () => {
+const Edit: React.FC<>= () => {
 
-  const navigator = useNavigation();
+  const navigation = useNavigation();
     const [image, setImage] = useState<string>('')
 
 
-    const takeAPhoto = async() => {
-      const result = await pickImage();
-      const { uri } = result
-      return setImage(uri);
+     const takeAPhoto = async() => {
+     const result = await pickImage();
+     const { uri } = result
+     setImage(uri);
     }
 
    const handleSubmit = async (values) => {
     const { title } = values;
     const { price } = values;
-    //como está sem api não será feito o upload
-    Alert.alert(image)
 
-    await api.post('products', {
+
+    await api.put('products', {
       image: 'computer',
       title,
       price,
@@ -60,47 +60,47 @@ const Create: React.FC<>= () => {
       }
     });
 
-    return navigator.goBack();
+    return navigation.navigate('Main');
   }
 
   return (
     <>
       <Header />
       <Container>
-        <LoginText>Cadastrar</LoginText>
+        <LoginText>Editar Produto</LoginText>
         <LoginContainer>
           <Formik
-            initialValues={{ cnpj: '', password: '' }}
+            initialValues={{ title: '', price: 0 }}
             onSubmit={handleSubmit}
             validationSchema={validations}
           >
             {({values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit, }) => (
               <>
                 <CameraView>
-                  <Button title="Pick an image from camera roll" onPress={takeAPhoto()} />
-                  {image && <CameraImage source={{ uri: image }} />}
+                  {image? (<CameraImage source={{ uri: image }} />):(<></>)}
                 </CameraView>
-
+                <Button onPress={()=>takeAPhoto()}>
+                  <Icon name="camera" color="#FFF" size={20} />
+                </Button>
                 <Field
-                  value={values.cnpj}
+                  value={values.title}
                   onChangeText={handleChange('title')}
-                  onBlur={() => setFieldTouched('title')}
                   placeholder="Titulo"
                   placeholderTextColor="#3f51b5"
                 />
-                {touched.cnpj && errors.cnpj && (
-                  <ErrorText>{errors.cnpj}</ErrorText>
+                {touched.title && errors.title && (
+                  <ErrorText>{errors.title}</ErrorText>
                 )}
 
                 <Field
-                  value={values.password}
+                  value={values.price}
                   onChangeText={handleChange('price')}
                   placeholder=" Valor"
                   keyboardType="numeric"
                   placeholderTextColor="#3f51b5"
                 />
-                {touched.password && errors.password && (
-                  <ErrorText>{errors.password}</ErrorText>
+                {touched.price && errors.price && (
+                  <ErrorText>{errors.price}</ErrorText>
                 )}
 
                 <Button
@@ -125,11 +125,11 @@ const Create: React.FC<>= () => {
           <ProductAmount>
             <Icon name="pencil" color="#FFF" size={20} />
           </ProductAmount>
-          <CreateButtonText>Cria Produto</CreateButtonText>
+          <CreateButtonText>Criar Produto</CreateButtonText>
         </CreateButton>
       </CreateContainer>
     </>
   );
 };
 
-export default Create
+export default Edit

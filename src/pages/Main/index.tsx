@@ -35,7 +35,7 @@ const Main: React.FC = ({ addToCartRequest, amount }: any) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const { navigation } = useNavigation();
+  const navigation = useNavigation();
 
   useEffect(() => {
     api.get('products').then((response) => {
@@ -49,7 +49,7 @@ const Main: React.FC = ({ addToCartRequest, amount }: any) => {
   }, []);
 
   const handleNavigate = useCallback((productId: number) => {
-    navigation('Details', {
+    navigation.navigate('Details', {
       productId,
     });
   }, []);

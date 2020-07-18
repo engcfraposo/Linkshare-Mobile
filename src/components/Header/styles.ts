@@ -49,3 +49,7 @@ export const StatusContainer = styled.View`
   flex-direction: row;
   flex: 1;
 `;
+
+export const LogoButton = styled.TouchableOpacity``;
+
+
