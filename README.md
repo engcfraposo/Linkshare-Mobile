@@ -38,8 +38,7 @@ A loja virtual LinkShare Softwares tem como objetivo trazer soluções na área 
 O projeto foi feito com as seguintes tecnologias:
 
 - [ReactJS](https://pt-br.reactjs.org/)
-- [Recharts](https://recharts.org/)
-- [Material UI](https://material-ui.com/pt/)
+- [Redux](https://redux.js.org/)
 - [Formik](https://formik.org/)
 - [YUP](https://www.npmjs.com/package/yup)
 - [Styled-Components](https://styled-components.com/)
