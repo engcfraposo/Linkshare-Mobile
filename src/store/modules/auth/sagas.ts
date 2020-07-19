@@ -18,10 +18,6 @@ export function* signIn({ payload }) {
       return yield put(signFailure());
     }
 
-    if(user.data.password !== password){
-      Alert.alert('Falha na autenticação, Senha não valida');
-      return yield put(signFailure());
-    }
     //const { token, user } = response.data;
 
     const token = 'fake token';
