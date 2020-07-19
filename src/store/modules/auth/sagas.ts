@@ -19,7 +19,8 @@ export function* signIn({ payload }) {
     }
 
     if(user.data.password !== password){
-      Alert.alert('Falha na autenticação, Senha não valida')
+      Alert.alert('Falha na autenticação, Senha não valida');
+      return yield put(signFailure());
     }
     //const { token, user } = response.data;
 
