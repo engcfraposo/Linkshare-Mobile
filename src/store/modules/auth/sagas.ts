@@ -37,13 +37,17 @@ export function* signIn({ payload }) {
 
 export function* signUp({ payload }) {
   try {
-    const { name, email, password } = payload;
+    const { name, originalname, fantasyname, cnpj, email, password } = payload;
 
     yield call(api.post, 'users', {
       name,
+      originalname,
+      fantasyname,
+      cnpj,
       email,
       password,
     });
+    
     Alert.alert('Cadastro de Usuário', 'Cadastradado com sucesso!');
     // history.push('/');
   } catch (err) {
