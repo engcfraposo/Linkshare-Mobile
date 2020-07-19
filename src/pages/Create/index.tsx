@@ -56,9 +56,6 @@ const Edit: React.FC<>= () => {
         image: 'computer',
         title,
         price,
-        headers: {
-          token: 'fake token'
-        }
       });
       Alert.alert('Produto criado!')
       return navigation.navigate('Main');

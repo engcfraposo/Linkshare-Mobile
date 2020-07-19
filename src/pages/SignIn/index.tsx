@@ -35,7 +35,7 @@ const SignIn: React.FC = () => {
 
     if (cnpj && password) dispatch(signInRequest(cnpj, password));
 
-    navigation.goBack();
+    navigation.navigate('Main');
   }
 
   return (

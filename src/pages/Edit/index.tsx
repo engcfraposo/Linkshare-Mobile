@@ -76,9 +76,6 @@ const Create: React.FC = () => {
         image: 'computer',
         title,
         price,
-        headers: {
-          token: 'fake token'
-        }
       });
     } catch (error) {
       Alert.alert('Produto não editado!, tente mais tarde')

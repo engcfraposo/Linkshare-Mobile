@@ -11,18 +11,11 @@ export function* signIn({ payload }) {
       password,
     });
 
+    const { token } = response.data;
+
     const user = yield call(api.get, 'users', {params:{cnpj}});
 
-    if(user.data.length == 0 ||user.data.length == null ) {
-      Alert.alert('Falha na autenticação, usuario não existe');
-      return yield put(signFailure());
-    }
-
-    //const { token, user } = response.data;
-
-    const token = 'fake token';
-
-    //api.defaults.headers.Authorization = `Baerer ${token}`;
+    api.defaults.headers.Authorization = `Baerer ${token}`;
 
     yield put(signInSuccess(token, user));
 
@@ -47,9 +40,8 @@ export function* signUp({ payload }) {
       email,
       password,
     });
-    
-    Alert.alert('Cadastro de Usuário', 'Cadastradado com sucesso!');
-    // history.push('/');
+
+    Alert.alert('Cadastro de Usuário', 'Cadastradado com sucesso!');;
   } catch (err) {
     console.tron.log('erro no cadastro', err);
     Alert.alert('Falha no cadastro', 'verifique seus dados');
@@ -61,8 +53,9 @@ export function setToken({ payload }) {
   if (!payload) return;
   const { token } = payload.auth;
   if (token) {
-    //api.defaults.headers.Authorization = `Baerer ${token}`;
-    api.defaults.headers.Authorization = 'fake token';
+
+    api.defaults.headers.Authorization = `Baerer ${token}`;
+
   }
 }
 

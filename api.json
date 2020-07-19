@@ -267,11 +267,56 @@
       "cnpj": "12345678901234",
       "password": "abc123456",
       "id": 46
+    },
+    {
+      "cnpj": "12234436743774532",
+      "password": "asdfdsafggasgsg",
+      "id": 47
+    },
+    {
+      "cnpj": "12234436743774532",
+      "password": "asdfdsafggasgsg",
+      "id": 48
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "asfsdgfsdgsgsdg",
+      "id": 49
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "asfsdgfsdgsgsdg",
+      "id": 50
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc123456",
+      "id": 51
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc123456",
+      "id": 52
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc123456",
+      "id": 53
+    },
+    {
+      "cnpj": "1234457484538566856",
+      "password": "sdgdgsdhgdfhh",
+      "id": 54
+    },
+    {
+      "cnpj": "1234457484538566856",
+      "password": "sdgdgsdhgdfhh",
+      "id": 55
     }
   ],
   "products": [
     {
-      "image": "school",
+      "image": "city",
       "title": "Sala de Aula",
       "price": "32423",
       "id": 10
@@ -286,9 +331,6 @@
       "image": "computer",
       "title": "teste",
       "price": "50",
-      "headers": {
-        "token": "fake token"
-      },
       "id": 12
     }
   ],
@@ -301,8 +343,6 @@
       "fantasyname": "Empresa 1",
       "cnpj": "12345678901234",
       "password": "abc123456",
-      "token": "asddeaf",
-      "admin": true
     }
   ]
 }
