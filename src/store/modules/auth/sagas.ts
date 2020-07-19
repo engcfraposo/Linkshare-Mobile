@@ -4,67 +4,57 @@ import api from '../../../services/api';
 import { signInSuccess, signFailure } from './actions';
 
 export function* signIn({ payload }) {
+  const { cnpj, password } = payload;
+  const users = yield call(api.get, 'users', {
+    params: {
+      cnpj,
+    },
+  });
   try {
-    const { cnpj, password } = payload;
+    if (Object.keys(users).length !== 0) {
+      try {
+        if (users.data.password === password) {
+          try {
+            const response = yield call(api.post, 'sessions', {
+              cnpj,
+              password,
+            });
 
-    const users = yield call(api.get, 'users', {
-      params: {
-        cnpj,
-      },
-    });
-
-    if (!users.data.password === password) {
-      return alert(
-        'Falha na autenticação, Houve um erro no login, verifique seu email/senha',
-      );
+            const token = 'fake token';
+            const user = {
+              id: '1',
+              name: 'Cláudio Filipe Lima Rapôso',
+              cnpj,
+              admin: 'true',
+            };
+            // const {t oken, user } = response.data
+            // api.defaults.headers.Authorization = `Baerer ${token}`;
+            return yield put(signInSuccess(token, user));
+          } catch (error) {
+            Alert.alert('Falha na autenticação, token invalido');
+            return yield put(signFailure());
+          }
+        }
+      } catch (error) {
+        Alert.alert(
+          'Falha na autenticação, Houve um erro no login, verifique seu email/senha',
+        );
+        return yield put(signFailure());
+      }
     }
-    // const { token, user } = response.data;
-
-    const token = 'fake token';
-    const user = {
-      id: '1',
-      name: 'Cláudio Filipe Lima Rapôso',
-      cnpj,
-      admin: 'true',
-    };
-
-    // api.defaults.headers.Authorization = `Baerer ${token}`;
-    const response = yield call(api.post, 'sessions', {
-      cnpj,
-      password,
-    });
-    yield put(signInSuccess(token, user));
-
-    // history.push('/dashboard');
-  } catch (err) {
-    Alert.alert(
-      'Falha na autenticação',
-      'Houve um erro no login, verifique seu email/senha',
-    );
+  } catch (error) {
     yield put(signFailure());
+    return Alert.alert('Usuario não encontrado');
   }
 }
 
-export function* signUp({ payload }) {
-  try {
-    const { name, originalname, fantasyname, cnpj, email, password } = payload;
+const signOut = useCallback(async () => {
+  localStorage.removeItem('@LinkShare:token');
+  localStorage.removeItem('@LinkShare:user');
 
-    yield call(api.post, 'users', {
-      name,
-      originalname,
-      fantasyname,
-      cnpj,
-      email,
-      password,
-    });
-    Alert.alert('Cadastro de Usuário', 'Cadastradado com sucesso!');
-    // history.push('/');
-  } catch (err) {
-    console.tron.log('erro no cadastro', err);
-    Alert.alert('Falha no cadastro', 'verifique seus dados');
-    yield put(signFailure());
-  }
-}
+  setData({} as AuthState);
+}, []);
+
 
 export function setToken({ payload }) {
   if (!payload) return;
