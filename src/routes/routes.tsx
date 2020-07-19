@@ -53,7 +53,7 @@ const Routes: React.FC = () => (
         headerTransparent: true,
       }}
     />
-      <Stack.Screen
+    <Stack.Screen
       name="Edit"
       component={Edit}
       options={{

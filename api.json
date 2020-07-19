@@ -247,6 +247,26 @@
       "cnpj": "12345678901234",
       "password": "abc12345",
       "id": 42
+    },
+    {
+      "cnpj": "1232516737235262623",
+      "password": "asHGVSHFGGFA",
+      "id": 43
+    },
+    {
+      "cnpj": "1232516737235262623",
+      "password": "asHGVSHFGGFA",
+      "id": 44
+    },
+    {
+      "cnpj": "123456789012345",
+      "password": "abc12345",
+      "id": 45
+    },
+    {
+      "cnpj": "12345678901234",
+      "password": "abc123456",
+      "id": 46
     }
   ],
   "products": [
