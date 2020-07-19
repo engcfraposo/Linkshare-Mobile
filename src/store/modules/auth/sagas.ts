@@ -17,6 +17,10 @@ export function* signIn({ payload }) {
       Alert.alert('Falha na autenticação, usuario não existe');
       return yield put(signFailure());
     }
+
+    if(user.data.password !== password){
+      Alert.alert('Falha na autenticação, Senha não valida')
+    }
     //const { token, user } = response.data;
 
     const token = 'fake token';
